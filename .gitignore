@@ -1,2 +1,3 @@
 API_KEY.py
 *.csv
+__pycache__

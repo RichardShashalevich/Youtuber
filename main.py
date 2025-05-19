@@ -112,6 +112,7 @@ def process_video_item(item):
         "comments": int(stats["statistics"].get("commentCount", 0)),
         "subscribers": subs,
         "published_at": item["snippet"]["publishedAt"],
+        "description": item["snippet"].get("description", ""),
         "url": f"https://youtu.be/{video_id}"
     }
 
