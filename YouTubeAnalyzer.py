@@ -134,7 +134,6 @@ class YouTubeAnalyzer:
         if not videos:
             print("No matching videos.")
             return
-        import pandas as pd  # reuse pandas here
         df = pd.DataFrame(videos)
         df["published_at"] = pd.to_datetime(df["published_at"])
         df["views_per_sub"]   = df["views"]   / df["subscribers"].replace(0,1)
@@ -159,8 +158,6 @@ class YouTubeAnalyzer:
         for w, c in desc_map.most_common(10):
             print(f"{w}: {c}")
 
-        # save full word counts to CSV
-        import pandas as pd
         title_items = title_map.most_common()
         pd.DataFrame(title_items, columns=["word", "count"]) \
             .to_csv("title_word_counts.csv", index=False)
